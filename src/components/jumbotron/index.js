@@ -8,14 +8,10 @@ import {
   SubTitle,
   Image,
 } from './styles/jumbotron';
-export default function Jumbotron({
-  children,
-  direction = 'row',
-  ...restProps
-}) {
+export default function Jumbotron({ children, direction = 'row' }) {
   return (
-    <Item direction={direction}>
-      <Inner>{children}</Inner>
+    <Item>
+      <Inner direction={direction}>{children}</Inner>
     </Item>
   );
 }
@@ -36,6 +32,6 @@ Jumbotron.SubTitle = function JumbotronSubTitle({ children, ...restProps }) {
   return <SubTitle {...restProps}>{children}</SubTitle>;
 };
 
-Jumbotron.Image = function JumbotronImage({ children, ...restProps }) {
+Jumbotron.Image = function JumbotronImage({ ...restProps }) {
   return <Image {...restProps} />;
 };
