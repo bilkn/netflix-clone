@@ -39,7 +39,6 @@ export const Header = styled.div`
 `;
 
 
-
 export const Title = styled.h1`
   color: white;
   font-size: 50px;
@@ -72,7 +71,7 @@ export const Body = styled.div`
 
 export const Item = styled.div`
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
 
   &:first-of-type {
     margin-top: 3rem;
