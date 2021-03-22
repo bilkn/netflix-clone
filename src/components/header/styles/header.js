@@ -10,7 +10,8 @@ export const Background = styled.div`
       rgba(0, 0, 0, 0.1),
       rgba(0, 0, 0, 0.35)
     ),
-    url(${({ src }) => src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'})   
+    url(${({ src }) =>
+        src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'})
       top left / cover no-repeat;
   @media (max-width: 1100px) {
     ${({ dontShowOnSmallViewPort }) =>
@@ -38,7 +39,7 @@ export const Container = styled.div`
 export const Group = styled.div`
   align-items: center;
   display: flex;
-`
+`;
 
 export const ButtonLink = styled(ReactRouterLink)`
   background: #e50914;
@@ -54,6 +55,80 @@ export const ButtonLink = styled(ReactRouterLink)`
 
   &:hover {
     background: #f40612;
+  }
+`;
+
+export const Picture = styled.button`
+  background: url(${({ src }) => src});
+  background-size: contain;
+  border: 0;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+`;
+
+export const Link = styled.p`
+  color: white;
+  cursor: pointer;
+  font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
+  margin-right: 30px;
+  text-decoration: none;
+
+  &:hover {
+    font-weight: bold;
+  }
+  &:last-of-type {
+    margin-right: 0;
+  }
+`;
+
+export const Dropdown = styled.div`
+  display: none;
+  background-color: black;
+  padding: 10px;
+  position: absolute;
+  right: 10px;
+  top: 32px;
+  width: 100px;
+
+  ${Group}:last-of-type ${Link} {
+    cursor: pointer;
+  }
+
+  ${Group} {
+    margin-bottom: 10px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    ${Link},${Picture} {
+      cursor: default;
+    }
+  }
+
+  button {
+    margin-right: 10px;
+  }
+
+  p {
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+`;
+export const Profile = styled.div`
+  align-items: center;
+  display: flex;
+  margin-left: 20px;
+  position: relative;
+
+  button {
+    cursor: pointer;
+  }
+  &:hover > ${Dropdown} {
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -85,20 +160,7 @@ export const Text = styled.p`
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
 `;
-export const Link = styled.p`
-  color: white;
-  cursor: pointer;
-  font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
-  margin-right: 30px;
-  text-decoration: none;
 
-  &:hover {
-    font-weight: bold;
-  }
-  &:last-of-type {
-    margin-right: 0;
-  }
-`;
 export const FeatureCallOut = styled.h2`
   color: white;
   font-size: 22px;
