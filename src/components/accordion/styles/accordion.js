@@ -8,9 +8,9 @@ export const Container = styled.div`
 export const Inner = styled.div`
   display: flex;
   flex-direction: column;
-  width: 815px;
   margin: auto;
   padding: 70px 45px;
+  width: 815px;
 `;
 
 export const Header = styled.div`
