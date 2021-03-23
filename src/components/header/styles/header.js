@@ -83,6 +83,24 @@ export const SearchIcon = styled.button`
   }
 `;
 
+export const PlayButton = styled.button`
+  box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  border-width: 0;
+  color: #000;
+  cursor: pointer;
+  font-size: 20px;
+  max-width: 130px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  transition: background-color 0.5 ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+`;
+
 export const SearchInput = styled.input`
   background-color: #44444459;
   border: 1px solid white;

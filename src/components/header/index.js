@@ -7,6 +7,7 @@ import {
   ButtonLink,
   Group,
   Picture,
+  PlayButton,
   Profile,
   Dropdown,
   Feature,
@@ -15,11 +16,15 @@ import {
   Link,
   Search,
   SearchIcon,
-  SearchInput
+  SearchInput,
 } from './styles/header';
 export default function Header({ bg = true, children, ...restProps }) {
   return bg ? <Background {...restProps}>{children}</Background> : children;
 }
+
+Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
+  return <PlayButton {...restProps}>{children}</PlayButton>;
+};
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -45,8 +50,8 @@ Header.Search = function HeaderSearch({
       <SearchInput
         value={searchTerm}
         onChange={({ target }) => setSearchTerm(target.value)}
-        placeholder = "Search films and series"
-        active ={searchActive}
+        placeholder="Search films and series"
+        active={searchActive}
       />
     </Search>
   );
