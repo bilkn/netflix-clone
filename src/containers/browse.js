@@ -1,11 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { SelectProfileContainer } from './profiles';
 import { FirebaseContext } from '../context/firebase';
-import { Header, Loading } from '../components';
+import { Card, Header, Loading } from '../components';
 import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
 
 export default function BrowseContainer({ slides }) {
+  const [category, setCategory] = useState('series');
+  const [slideRows, setSlideRows] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
@@ -20,6 +22,10 @@ export default function BrowseContainer({ slides }) {
     return () => {};
   }, [profile.displayName]);
 
+  useEffect(() => {
+    setSlideRows(slides[category]);
+  }, [slides, category]);
+
   return profile.displayName ? (
     <>
       {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
@@ -27,8 +33,18 @@ export default function BrowseContainer({ slides }) {
         <Header.Frame>
           <Header.Group>
             <Header.Logo to={ROUTES.HOME} alt="Netflix" src={logo} />
-            <Header.TextLink>Series</Header.TextLink>
-            <Header.TextLink>Films</Header.TextLink>
+            <Header.TextLink
+              active={category === 'series' ? 'true' : 'false'}
+              onClick={() => setCategory('series')}
+            >
+              Series
+            </Header.TextLink>
+            <Header.TextLink
+              active={category === 'films' ? 'true' : 'false'}
+              onClick={() => setCategory('films')}
+            >
+              Films
+            </Header.TextLink>
           </Header.Group>
           <Header.Group>
             <Header.Search
@@ -63,6 +79,13 @@ export default function BrowseContainer({ slides }) {
           <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
+      <Card.Group>
+        {slideRows.map((slideItem) => (
+          <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
+            <Card.Title>{slideItem.title}</Card.Title>
+          </Card>
+        ))}
+      </Card.Group>
     </>
   ) : (
     <SelectProfileContainer user={user} setProfile={setProfile} />

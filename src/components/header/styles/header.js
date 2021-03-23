@@ -124,15 +124,15 @@ export const Picture = styled.button`
 `;
 
 export const Link = styled.p`
-  color: white;
+  color: #e5e5e5;
   cursor: pointer;
   font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
   margin-right: 30px;
   text-decoration: none;
+  transition: color 0.4s;
 
   &:hover {
-    font-weight: bold;
-    margin-right: 27.4px;
+    color: #b3b3b3;
   }
   &:last-of-type {
     margin-right: 0;
