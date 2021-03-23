@@ -58,6 +58,44 @@ export const ButtonLink = styled(ReactRouterLink)`
   }
 `;
 
+export const Search = styled.div`
+  align-items: center;
+  display: flex;
+
+  svg {
+    color: white;
+    cursor: pointer;
+  }
+
+  @media (max-width: 700px) {
+    display: none;
+  }
+`;
+
+export const SearchIcon = styled.button`
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
+  img {
+    filter: brightness(0) invert(1);
+    width: 16px;
+  }
+`;
+
+export const SearchInput = styled.input`
+  background-color: #44444459;
+  border: 1px solid white;
+  color: white;
+  font-size: 14px;
+  height: 30px;
+  margin-left: ${({ active }) => (active === true ? '10px' : '0')};
+  padding: ${({ active }) => (active === true ? '0 10px' : '0')};
+  transition: width 0.5s;
+  opacity: ${({ active }) => (active === true ? '1' : '0')};
+  width: ${({ active }) => (active === true ? '200px' : '0')};
+`;
+
 export const Picture = styled.button`
   background: url(${({ src }) => src});
   background-size: contain;
@@ -76,6 +114,7 @@ export const Link = styled.p`
 
   &:hover {
     font-weight: bold;
+    margin-right: 27.4px;
   }
   &:last-of-type {
     margin-right: 0;
