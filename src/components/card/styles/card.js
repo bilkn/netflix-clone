@@ -4,7 +4,9 @@ export const Title = styled.p`
   color: #e5e5e5;
   font-size: 24px;
   font-weight: bold;
-  margin: 0 56px;
+  margin-left: 56px;
+  margin-right: 56px;
+  margin-top: 0;
 `;
 
 export const Container = styled.div`
@@ -42,22 +44,100 @@ export const SubTitle = styled.p``;
 
 export const Text = styled.p``;
 
-export const Feature = styled.div``;
+export const FeatureText = styled.p`
+  margin-left: 0;
+`;
 
-export const FeatureTitle = styled(Title)``;
+export const Feature = styled.div`
+  background: url(${({ src }) => src});
+  background-color: black;
+  background-position-x: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: row;
+  height: 36px;
+  position: relative;
 
-export const FeatureText = styled.p``;
+  @media (max-width: 1000px) {
+    background-size: auto;
+    height: auto;
 
-export const FeatureClose = styled.button``;
+    ${Title} {
+      font-size: 20px;
+      line-height: 20px;
+      margin-bottom: 10px;
+    }
 
-export const Maturity = styled.div``;
+    ${FeatureText} {
+      font-size: 14px;
+    }
+  }
+`;
 
-export const Content = styled.div``;
+export const FeatureTitle = styled(Title)`
+  margin-left: 0;
+`;
 
-export const Meta = styled.div``;
+export const FeatureClose = styled.button`
+  background-color: transparent;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 
-export const Entities = styled.div``;
+  img {
+    filter: brightness(0) invert(1);
+    width: 24px;
+  }
+`;
+
+export const Maturity = styled.div`
+  background-color: ${({ rating }) => (rating >= 15 ? 'red' : 'green')};
+  border-radius: 15px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 5px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 20px;
+`;
+
+export const Content = styled.div`
+  line-height: normal;
+  margin: 56px;
+  max-width: 500px;
+
+  @media (max-width: 1000px) {
+    margin: 30px;
+    max-width: none;
+  }
+`;
+
+export const Meta = styled.div`
+  background-color: #0000008f;
+  bottom: 0;
+  display: none;
+  padding: 10px;
+`;
+
+export const Entities = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 export const Item = styled.div``;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  border: 0;
+  cursor: pointer;
+  height: auto;
+  margin: 0;
+  max-width: 305px;
+  padding: 0;
+  width: 100%;
+`;
