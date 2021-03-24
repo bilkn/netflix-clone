@@ -13,7 +13,7 @@ export default function BrowseContainer({ slides }) {
   const [loading, setLoading] = useState(true);
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
-
+  
   useEffect(() => {
     console.log('profile', profile);
     setTimeout(() => {
@@ -96,10 +96,10 @@ export default function BrowseContainer({ slides }) {
                 </Card.Item>
               ))}
             </Card.Entities>
-            
-           <Card.Feature category={category}>
-             <p>Hello</p>
-            </Card.Feature> 
+
+            <Card.Feature category={category}>
+              <p>Hello</p>
+            </Card.Feature>
           </Card>
         ))}
       </Card.Group>

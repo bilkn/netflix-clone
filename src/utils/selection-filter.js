@@ -3,7 +3,7 @@ export default function selectionFilter({ series, films }) {
     series: [
       {
         title: 'Documentaries',
-        data: series.filter((item) => item.genre === 'documantaries'),
+        data: series.filter((item) => item.genre === 'documentaries'),
       },
       {
         title: 'Comedies',
