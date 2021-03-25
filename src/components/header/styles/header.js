@@ -124,7 +124,7 @@ export const Picture = styled.button`
 `;
 
 export const Link = styled.p`
-  color: #e5e5e5;
+  color: ${({ active }) => (active ? '#fff' : 'e5e5e5')};
   cursor: pointer;
   font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
   margin-right: 30px;
